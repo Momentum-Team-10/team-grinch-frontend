@@ -1,9 +1,13 @@
 import './App.css';
-import './components/Loginforms'
+import './components/Loginforms';
+import questbox from'./questbox.png';
+
+
+
 function App() {
   return (
 <>
-    <h1> Questbox</h1>
+    <img className="logo" src={questbox} alt="Questbox" />
 </>
   )}
 export default App;
