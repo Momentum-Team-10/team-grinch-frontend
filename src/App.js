@@ -1,15 +1,13 @@
 import { isElementOfType } from 'react-dom/cjs/react-dom-test-utils.production.min'
-import InputField  from './components/Forms';
-import Login from './components/Loginforms';
-import useLocalStorageState from 'use-local-storage-state';
+import {InputField}  from './components/Forms';
+import Login from './components/Login';
+import { useState } from 'react';
 import questbox from'./questbox.png';
 import './App.css';
 
-
-
 export default function App() {
-  const [email, setEmail] = useLocalStorageState('myAppEmail', '')
-  const [token, setToken] = useLocalStorageState('myAppToken', '')
+  const [email, setEmail] = useState('')
+  const [token, setToken] = useState('')
   
   function setAuth(email, token) {
     setEmail(email)

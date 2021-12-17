@@ -1,4 +1,4 @@
-export default function requestLogin(email, password) {
+export function requestLogin(email, password) {
     return fakeResponse(email, password)
 }
 
