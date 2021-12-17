@@ -1,14 +1,14 @@
-import { useState } from "react";
-import requestLogin from './requestLogin.js'
+import { useState } from 'react'
+import requestLogin from './requestLogin'
 
 
 const Login = ({ isLoggedIn, setAuth }) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [errors, setErrors] = useState(null);
 
   const handleSubmit = (event) => {
-    event.preventDefault();
+    event.preventDefault()
     // axios.post(someUrl).then(data=> setSomeState(data))
     // here is my FAKE REQUEST PLACEHOLDER
     requestLogin(email, password)
@@ -26,7 +26,9 @@ const Login = ({ isLoggedIn, setAuth }) => {
       {/* conditionally show error message */}
       {errors && <div>{errors}</div>}
       <div>
-        <label htmlFor="email">Email</label>
+        <label htmlFor="email">
+        Email
+        </label>
         <input
           type="text"
           id="email"
@@ -36,7 +38,9 @@ const Login = ({ isLoggedIn, setAuth }) => {
       </div>
 
       <div>
-        <label htmlFor="password">Password</label>
+        <label htmlFor="password">
+        Password
+        </label>
         <input
           type="password"
           id="password"
@@ -44,11 +48,13 @@ const Login = ({ isLoggedIn, setAuth }) => {
           onChange={(event) => setPassword(event.target.value)}
         />
       </div>
+
       <div>
         <button type="submit">Log In</button>
       </div>
-    </form>
-  );
-};
 
-export default Login;
+    </form>
+  )
+}
+
+export default Login
