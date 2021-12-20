@@ -3,6 +3,7 @@ import { useState } from 'react';
 import questbox from'./questbox.png';
 import './App.css';
 import { QuestionList } from './components/QuestionList';
+// import NavBar from '.components/NavBar';
 
 export default function App() {
   const [email, setEmail] = useState('')

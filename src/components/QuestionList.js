@@ -38,7 +38,7 @@ const questions = [
 
 ]
 export const QuestionList = () => {
-    // const [questions, setQuestions] = useState([])
+    const [questions, setQuestions] = useState([])
     return (
         questions.map(question => {
             return < QuestionCard question={question} />
