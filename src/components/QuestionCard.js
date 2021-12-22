@@ -1,17 +1,15 @@
 import React from 'react'
-import moment from 'moment';
+// import moment from 'moment';
 
 export const QuestionCard = (props) => {
-    let { title, author, body } = props
+    let { title, body, author, tags, favorited_by } = props
     return (
         <div>
             <h3>{title}</h3>
             <p>author: {author}</p>
             <p>{body}</p>
-            {/* <p>tags: {tags.map(tag => <p>{tag}</p>)}</p>
-            <p>published: {moment(created_at).format('DD/MM/YYYY')}</p>
-            <p>{favorited_by.length} likes </p> */}
+            <p>tags: {tags}</p>
+            <p>{favorited_by} </p>
         </div>
     )
-
-}
+    }
