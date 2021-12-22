@@ -8,11 +8,11 @@ export const QuestionForm = ({token, setSubmitted }) => {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        axios.post('https://questbox-app.herokuapp.com/api/questions'),
+        axios.post('https://questbox-app.herokuapp.com/api/questions',
             {
                 title: title,
                 body: body,
-                tags: tags,
+                tags: tags
     
             },
             {
@@ -21,7 +21,7 @@ export const QuestionForm = ({token, setSubmitted }) => {
                     Authorization: `token ${token}`
                 }
             }
-        ).then(res => {
+            ).then(res => {
             setSubmitted(true)
             setTitle('')
             setBody('')
@@ -49,9 +49,26 @@ export const QuestionForm = ({token, setSubmitted }) => {
             <label>Title:</label>
             <input
             type='text'
-            placeholder='Question Header'
+            placeholder='Add Title'
             value={title}
             onChange={(e) => handleChange('title',e)}
             />
+            <label>Description:</label>
+            <input
+            type='text'
+            placeholer='Add a detailed description'
+            value={body}
+            onChange={(e) => handleChange('body',e)}
+            />
+            <label>Tags:</label>
+            <input
+            type='text'
+            placeholer='Add Tags'
+            value={tags}
+            onChange={(e) => handleChange('tags',e)}
+            />
+            <button>Submit</button>
+
         </form>
     )
+}
