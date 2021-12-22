@@ -1,9 +1,12 @@
-// import React from 'react';
+import '../styles.css'
+import { Link, useLocation } from 'react-router-dom'
+export const Navbar = ({ isLoggedIn, email, setAuth }) => {
+const location = useLocation()
 
-// const NavBar = () => {
-//     <nav>
-//         <a href="Username">Hello{Username}, You are now logged in</a>
-//         <a href="Logout">`Logout</a>
-//     </nav>
-// }
-
+return (
+    <nav className="navbar-container">
+        <div className="navbar-left">
+            <Link className="questbox-logo navbar-margin-left" to="/"></Link>
+        </div>
+    </nav>
+)
