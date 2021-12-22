@@ -7,6 +7,7 @@ import { QuestionList } from './components/QuestionList'
 
 let questUrl = 'https://questbox-app.herokuapp.com/api/questions'
 
+
 export default function App() {
   const [email, setEmail] = useState('')
   const [token, setToken] = useState('')
@@ -18,12 +19,9 @@ export default function App() {
 
   const isLoggedIn = email && token
 
-  
-    if (!isLoggedIn) {
-      return <Login setAuth={setAuth} isLoggedIn={isLoggedIn} />
-    }
-    
-    return 
-    
-    <QuestionList />
+
+  if (!isLoggedIn) {
+    return <Login setAuth={setAuth} isLoggedIn={isLoggedIn} />
   }
+  return <QuestionList />
+}

@@ -1,5 +1,6 @@
 import React from 'react'
-// import moment from 'moment';
+
+
 
 export const QuestionCard = (props) => {
     let { title, body, author, tags, favorited_by } = props
