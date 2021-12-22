@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import Login from './components/Login';
 import { useState } from 'react';
 import questbox from'./questbox.png';
@@ -7,6 +8,8 @@ import { QuestionList } from './components/QuestionList';
 import { QuestionForm } from './components/QuestionForm';
 // import NavBar from '.components/NavBar';
 =======
+=======
+>>>>>>> main
 import Login from './components/Login'
 import { useState } from 'react'
 import axios from 'axios'
@@ -15,6 +18,9 @@ import { QuestionList } from './components/QuestionList'
 
 
 let questUrl = 'https://questbox-app.herokuapp.com/api/questions'
+<<<<<<< HEAD
+>>>>>>> main
+=======
 >>>>>>> main
 
 export default function App() {
@@ -29,6 +35,7 @@ export default function App() {
   const isLoggedIn = email && token
 
   
+<<<<<<< HEAD
 <<<<<<< HEAD
   return (
   <>
@@ -51,6 +58,8 @@ export default function App() {
 
 
 =======
+=======
+>>>>>>> main
     if (!isLoggedIn) {
       return <Login setAuth={setAuth} isLoggedIn={isLoggedIn} />
     }
@@ -58,5 +67,9 @@ export default function App() {
     return 
     
     <QuestionList />
+<<<<<<< HEAD
+  }
+>>>>>>> main
+=======
   }
 >>>>>>> main
