@@ -36,10 +36,10 @@ export const Login = ({ isLoggedIn, setAuth }) => {
     }
   
     return (
-      <div>{errors && ( </div>
-        <div> {errors.message}</div>
-    )}
+      
     <form onSubmit={handleSubmit}>
+    {/* line 41, allowed login button to go to the next page*/}
+    {errors && <div>{errors}</div>}
           <label>Email</label>
           <input
             type="text"
@@ -62,4 +62,4 @@ export const Login = ({ isLoggedIn, setAuth }) => {
   )
 }
 
-export default Login;
+export default Login
