@@ -1,47 +1,39 @@
-import { useState } from "react";
-import moment from 'moment';
-import { QuestionCard } from "./QuestionCard";
+import { useState, useEffect } from 'react'
+import { QuestionCard } from './QuestionCard'
+import axios from 'axios'
+import questbox from '../questbox.png'
 
-const questions = [
-    {
-        title: 'Detangling 4C Hair',
-        author: 'CarolsDaughter',
-        description: 'Please help! I went swimming in the ocean and now I cannot detangle my hair.',
-        tags: ['4C', 'Detagle', 'Nappy', 'Edges'],
-        created_at: '2021-12-19T15:01:39-05:00',
-        favorited_by: ['CarolsDaughter', 'Poppincurls88','SoulGlo'],
-    },
-    {
-        title: 'Detangling 4C Hair',
-        author: 'CarolsDaughter',
-        description: 'Please help! I went swimming in the ocean and now I cannot detangle my hair.',
-        tags: ['4C', 'Detagle', 'Nappy', 'Edges'],
-        created_at: '2021-12-19T15:01:39-05:00',
-        favorited_by: ['CarolsDaughter', 'Poppincurls88','SoulGlo'],
-    },
-    {
-        title: 'Detangling 4C Hair',
-        author: 'CarolsDaughter',
-        description: 'Please help! I went swimming in the ocean and now I cannot detangle my hair.',
-        tags: ['4C', 'Detagle', 'Nappy', 'Edges'],
-        created_at: '2021-12-19T15:01:39-05:00',
-        favorited_by: ['CarolsDaughter', 'Poppincurls88','SoulGlo'],
-    },
-    {
-        title: 'Detangling 4C Hair',
-        author: 'CarolsDaughter',
-        description: 'Please help! I went swimming in the ocean and now I cannot detangle my hair.',
-        tags: ['4C', 'Detagle', 'Nappy', 'Edges'],
-        created_at: '2021-12-19T15:01:39-05:00',
-        favorited_by: ['CarolsDaughter', 'Poppincurls88','SoulGlo'],
-    },
+let questUrl = 'https://questbox-app.herokuapp.com/api/questions'
 
-]
+
+
+
 export const QuestionList = () => {
-    const [questions, setQuestions] = useState([])
-    return (
-        questions.map(question => {
-            return < QuestionCard question={question} />
+    const [questionList, setQuestionList] = useState(null)
+
+
+    useEffect( () => {
+        axios.get(questUrl).then((response)=> {
+            setQuestionList(response.data)
         })
+    }, [])
+        
+    return (
+        <>
+            <img className="logo" src={questbox} alt="Questbox" />
+            {questionList &&
+                questionList.map((question) => {
+                    return (
+                        <QuestionCard
+                            pk={question.pk}
+                            title={question.title}
+                            body={question.body}
+                            author={question.author}
+                            tags={question.tags}
+                            favorited_by={question.favorited_by}
+                        />
+                    )
+                })}
+            </>
     )
-}
+            }
