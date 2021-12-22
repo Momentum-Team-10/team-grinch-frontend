@@ -1,5 +1,7 @@
-import { useState } from "react";
-import { requestLogin } from "../ajax";
+import { useState } from 'react';
+import { requestLogin } from '../ajax';
+import {Link, Navigate} from 'react-router-dom'
+import axios from 'axios'
 
 const Login = ({ isLoggedIn, setAuth }) => {
   const [email, setEmail] = useState("");
@@ -8,7 +10,20 @@ const Login = ({ isLoggedIn, setAuth }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // axios.post(someUrl).then(data=> setSomeState(data))
+    axios
+      .post('https://questbox-app.herokuapp.com/auth/token/login', {
+        email: email,
+        password: password,
+      })
+      .then((res) => {
+        if (res.data.auth_token) {
+          setAuth(email, res.data.auth_token)
+        }
+      })
+      .catch(error) => setErrors(error))
+    }
+
+      } setSomeState(data))
     // here is my FAKE REQUEST PLACEHOLDER
     requestLogin(email, password)
       .then((data) => {
